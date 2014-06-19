@@ -1,0 +1,19 @@
+body {
+  font-size: 25px;
+}
+
+h1 {
+  font-family: Palatino Linotype, serif;
+  font-size: 63px;
+  padding: 20px 20px 80px;
+  text-align: center;
+}
+
+#footer {
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+  color: #777;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
