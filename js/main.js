@@ -8,7 +8,7 @@ $(function(){
     },
     
     initialize: function() {
-      this.url = '_posts/' + this.get('permalink') + '.md';
+      this.url = 'posts/' + this.get('permalink') + '.md';
     }
   });
   
