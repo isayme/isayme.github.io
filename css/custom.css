@@ -2,7 +2,7 @@ body {
   font-size: 25px;
 }
 
-h1 {
+.page-header h1 {
   font-family: Palatino Linotype, serif;
   font-size: 63px;
   padding: 20px 20px 80px;

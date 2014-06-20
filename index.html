@@ -24,18 +24,27 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="container">
-      <h1>H E A V E N</h1>
-
+    <div class="page-header">
+      <h1>H E A V E N<small> think before you speak.</small></h1>
     </div>
 
+    <div id="content" class="container">
+      
+    </div>
+    
     <div id="footer">
       <div class="container">
-        <small class="text-muted">Copyright &copy;2014 by <a href="http://www.isayme.org">iSayme</a> .</small>
+        <small class="text-muted">Copyright &copy;2014 by <a href="http://www.isayme.org">iSayme</a>.</small>
       </div>
     </div>
 
-    <script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.js"></script>
+    <script type="text/template" id="content-template">
+      <h3><a href="#<%- permalink %>.html"><%- title %></a><div class="pull-right"><%- date %></div></h3>
+      
+      <div class="post-content"><%= content %></div>
+    </script>
+
+    <script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.1.1.min.js"><\/script>')</script>
     <script src="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
@@ -45,6 +54,8 @@
     <script src="http://backbonejs.org/backbone-min.js"></script>
     <script>window.Backbone || document.write('<script src="js/vendor/backbone-1.1.2.min.js"><\/script>')</script>
 
+    <script src="js/vendor/marked-0.3.2.min.js"></script>
+    
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
