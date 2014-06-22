@@ -1,12 +1,23 @@
 body {
   font-size: 25px;
+  font-family: Palatino Linotype, serif;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .page-header h1 {
-  font-family: Palatino Linotype, serif;
   font-size: 63px;
   padding: 20px 20px 80px;
   text-align: center;
+}
+
+.post-title {
+  font-size: 40px;
+}
+.post-title:hover {
+  font-weight: bold;
 }
 
 #footer {
