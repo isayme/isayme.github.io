@@ -39,9 +39,19 @@
     </div>
 
     <script type="text/template" id="content-template">
-      <h1 class="post-title"><a href="#<%- permalink %>.html"><%- title %></a><small class="pull-right"><%- date %></small></h1>
-      
-      <div class="post-content"><%= content %></div>
+      <div class="post">
+        <div class="post-title">
+          <h1>
+            <a href="#<%- permalink %>.html"><%- title %></a>
+            <div class="pull-right"><small><%- date %></small></div>
+          </h1>
+          <div class="underline"></div>
+        </div>
+        
+        <div class="post-content">
+          <%= content %>
+        </div>
+      </div>
     </script>
 
     <script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>

@@ -2,24 +2,37 @@ body {
   font-size: 25px;
   font-family: Palatino Linotype, serif;
 }
-
-a:hover {
-  text-decoration: none;
-}
-
+ 
 .page-header h1 {
   font-size: 70px;
   padding: 20px 20px 80px;
   text-align: center;
 }
-
-.post-title {
+ 
+.post a {
+  color: #666666;
+}
+.post a:hover {
+  text-decoration: none;
+  color: black;
+}
+ 
+.post-title h1{
   font-size: 40px;
+  padding: 10px 0;
+  margin: 0;
 }
-.post-title:hover {
-  font-weight: bold;
+ 
+.post:hover .underline {
+    width: 100%;
 }
-
+.underline {
+    background-color: #cccccc;
+    height: 1px;
+    width: 0;
+    transition: width 0.4s ease-in-out;
+}
+ 
 #footer {
   text-align: center;
   border-top: 1px solid #e5e5e5;
