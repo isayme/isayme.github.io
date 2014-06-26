@@ -11,9 +11,9 @@ body {
  
 .post a {
   color: #666666;
-}
-.post a:hover {
   text-decoration: none;
+}
+.post:hover > .post-title a {
   color: black;
 }
  
