@@ -9,28 +9,27 @@ body {
   text-align: center;
 }
  
-.post a {
+.post-title a {
   color: #666666;
   text-decoration: none;
+  font-size: 40px;
+  padding: 10px 0;
+  margin: 0;
+  transition: color 0.5s ease-in-out;
 }
 .post:hover > .post-title a {
   color: black;
 }
  
-.post-title h1{
-  font-size: 40px;
-  padding: 10px 0;
-  margin: 0;
-}
- 
 .post:hover .underline {
-    width: 100%;
+  width: 100%;
 }
 .underline {
-    background-color: #cccccc;
-    height: 1px;
-    width: 0;
-    transition: width 0.4s ease-in-out;
+  background-color: #cccccc;
+  height: 1px;
+  width: 0;
+  margin-bottom: 20px;
+  transition: width 0.5s ease-in-out;
 }
  
 #footer {
