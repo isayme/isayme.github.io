@@ -67,6 +67,7 @@ $(function(){
       
       this.$el.hide();
       this.$el.html(this.indexHtml ? this.indexHtml : this.loadingMessage);
+      document.title = 'H E A V E N';
       this.$el.fadeIn();
     },
     
@@ -82,25 +83,29 @@ $(function(){
         if (model.get('content') !== '') {
           this.$el.hide();
           this.$el.html(this.template(model.toJSON()));
+          document.title = model.get('title') + ' \/ H E A V E N';
           this.$el.fadeIn();
-          return this;
-        }
-        this.$el.html(this.loadingMessage);
-        model.fetch({
-          dataType: 'html',
-          success: function(model, resp) {
-            model.set('content', marked(resp));
-            self.$el.hide();
-            self.$el.html(self.template(model.toJSON()));
-            self.$el.fadeIn();
-          },
-          error: function() {
-            self.$el.hide();
-            self.$el.html('page not exsit!');
-            self.$el.fadeIn();
-          }
-        });
+        } else {
+          this.$el.html(this.loadingMessage);
+          model.fetch({
+            dataType: 'html',
+            success: function(model, resp) {
+              model.set('content', marked(resp));
+              self.$el.hide();
+              self.$el.html(self.template(model.toJSON()));
+              document.title = model.get('title') + ' \/ H E A V E N';
+              self.$el.fadeIn();
+            },
+            error: function() {
+              self.$el.hide();
+              self.$el.html('page not exsit!');
+              document.title = '404 \/ H E A V E N';
+              self.$el.fadeIn();
+            }
+          });
+        }    
       }
+      
       return this;
     },
       
