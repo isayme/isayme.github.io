@@ -1,5 +1,5 @@
 body {
-  font-size: 25px;
+  font-size: 23px;
   font-family: Palatino Linotype, serif;
 }
  
@@ -8,7 +8,7 @@ body {
   padding: 20px 20px 80px;
   text-align: center;
 }
- 
+
 .post-title a {
   color: #666666;
   text-decoration: none;
@@ -31,7 +31,24 @@ body {
   margin-bottom: 20px;
   transition: width 0.5s ease-in-out;
 }
- 
+
+.post-content h2 {
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.post-content img {
+  transition: 0.5s ease;
+}
+
+.post-content img:hover {
+  -moz-transform: translateX(20px);
+  -webkit-transform: translateX(20px);
+  -o-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(10px);
+}
+
 #footer {
   text-align: center;
   border-top: 1px solid #e5e5e5;
