@@ -1,5 +1,13 @@
 [
   {
+    "title": "Backbone源码解析--Events",
+    "permalink": "backbone-events",
+    "date": "2014-7-2"
+  }, {
+    "title": "Backbone源码解析--导读",
+    "permalink": "backbone-index",
+    "date": "2014-7-2"
+  }, {
     "title": "编程字体",
     "permalink": "programming-fonts",
     "date": "2014-6-29"
