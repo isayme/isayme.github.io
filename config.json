@@ -1,5 +1,9 @@
 [
   {
+    "title": "Backbone源码解析--View",
+    "permalink": "backbone-view",
+    "date": "2014-7-3"
+  }, {
     "title": "Backbone源码解析--Events",
     "permalink": "backbone-events",
     "date": "2014-7-2"
