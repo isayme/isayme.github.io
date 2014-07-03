@@ -1,3 +1,4 @@
+```
 // 典型自执行函数格式:
 // (funtion(root, factory) {
 //   // do stuff here
@@ -87,3 +88,4 @@
   return Backbone;
 
 }));
+```
