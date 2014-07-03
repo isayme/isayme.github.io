@@ -83,6 +83,8 @@ $(function(){
         if (model.get('content') !== '') {
           this.$el.hide();
           this.$el.html(this.template(model.toJSON()));
+	  this.$el.find('code').addClass('prettyprint');
+	  prettyPrint();
           document.title = model.get('title') + ' \/ H E A V E N';
           this.$el.fadeIn();
         } else {
@@ -94,6 +96,8 @@ $(function(){
               self.$el.hide();
               self.$el.html(self.template(model.toJSON()));
               document.title = model.get('title') + ' \/ H E A V E N';
+	      self.$el.find('code').addClass('prettyprint');
+	      prettyPrint();
               self.$el.fadeIn();
             },
             error: function() {
