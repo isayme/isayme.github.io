@@ -13,11 +13,12 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="js/vendor/google-code-prettify/prettify.css"/>
+
     <link rel="stylesheet" href="css/custom.css">
 
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
+    <script data-main="/js/main" src="/js/vendor/require-2.1.14.min.js"></script>
 
   </head>
   <body>
@@ -30,26 +31,11 @@
     </div>
 
     <div id="content" class="container">
-      
-    </div>
-    
-    <br/>
-    <div class="container">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-          var disqus_shortname = 'cainixiangbudao'; // required: replace example with your forum shortname
 
-          /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
+
+    <br/>
+  
 
     <div id="footer">
       <div class="container">
@@ -66,30 +52,12 @@
           </h1>
           <div class="underline"></div>
         </div>
-        
+
         <div class="post-content">
           <%= content %>
         </div>
       </div>
     </script>
-
-    <script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-2.1.1.min.js"><\/script>')</script>
-    <script src="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <script src="http://cdn.staticfile.org/underscore.js/1.6.0/underscore-min.js"></script>
-    <script>window._ || document.write('<script src="js/vendor/underscore-1.6.0.min.js"><\/script>')</script>
-
-    <script src="http://cdn.staticfile.org/backbone.js/1.1.2/backbone-min.js"></script>
-    <script>window.Backbone || document.write('<script src="js/vendor/backbone-1.1.2.min.js"><\/script>')</script>
-
-    <script src="js/vendor/marked-0.3.2.min.js"></script>
-    
-    <script src="js/plugins.js"></script>
-
-    <script src="js/vendor/google-code-prettify/prettify.js"></script>
-	
-    <script src="js/main.js"></script>
 
   </body>
 </html>
