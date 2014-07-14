@@ -7,7 +7,7 @@ define([
 
   var PostModel = Backbone.Model.extend({
     defaults: {
-      title: 'POST NOT EXIST',
+      title: '404 => POST NOT FOUND',
       permalink: '404',
       content: '',
       date: ''
@@ -22,13 +22,7 @@ define([
     },
 
     parse: function(resp) {
-      //console.log('sdsa:' + marked(resp));
-      if (typeof resp === 'string') {
-        return {content: marked(resp)};
-      } else {
-        return resp;
-      }
-
+      return {content: marked(resp)};
     },
 
     contentToMarkdown: function(model, content) {

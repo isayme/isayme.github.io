@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  '../models/postCollection'
+  'collections/post'
 ], function($, _, Backbone, postCollection) {
 
   var IndexView = Backbone.View.extend({
@@ -11,7 +11,6 @@ define([
     template: _.template($('#content-template').html()),
 
     initialize: function() {
-      //this.listenTo(this.collection, 'add', this.addPost);
       this.listenTo(this.collection, 'sync', this.render);
       this.listenTo(this.collection, 'error', this.renderError);
     },
@@ -26,10 +25,6 @@ define([
 
     renderError: function() {
       this.$el.html('config.json not exsit or data format error!');
-    },
-
-    addPost: function(model) {
-      this.$el.append(this.template(model.toJSON()));
     }
   });
 

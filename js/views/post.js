@@ -2,8 +2,8 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  '../models/postModel',
-  '../models/postCollection'
+  'models/post',
+  'collections/post'
 ], function($, _, Backbone, PostModel, postCollection) {
 
   var PostView = Backbone.View.extend({
@@ -12,7 +12,11 @@ define([
     template: _.template($('#content-template').html()),
 
     render: function() {
-      this.$el.html(this.template(this.model.toJSON()));
+      if (this.collection.length > 0) {
+        this.$el.html(this.template(this.model.toJSON()));
+      } else {
+        this.$el.html('loading ...');
+      }
     },
 
     initialize: function() {

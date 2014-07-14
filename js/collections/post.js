@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  './postModel'
+  'models/post'
 ], function($, _, Backbone, PostModel) {
 
   var PostCollection = Backbone.Collection.extend({
