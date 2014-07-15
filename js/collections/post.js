@@ -7,9 +7,9 @@ define([
 
   var PostCollection = Backbone.Collection.extend({
     model: PostModel,
-    url: 'config.json'
+    url: function() {
+      return 'config.json?id=' + Math.random();
+    }
   });
 
-  return new PostCollection();
-
-})
+  return new Po

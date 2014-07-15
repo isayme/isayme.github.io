@@ -2,7 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'collections/post'
+  'models/postCollection'
 ], function($, _, Backbone, postCollection) {
 
   var Router = Backbone.Router.extend({
@@ -14,13 +14,13 @@ define([
 
     initialize: function() {
       this.postCollection = postCollection;
-      this.postCollection.fetch({parse: false});
+      this.postCollection.fetch();
     },
 
     index: function() {
       console.log('[router] index');
       require([
-        'views/index'
+        'views/indexView'
       ], function(indexView) {
         indexView.render();
       });
@@ -28,25 +28,12 @@ define([
 
     post: function(title) {
       console.log('[router] post: ' + title);
-      
-      var model = this.postCollection.find({permalink: title});
-      if (model) {
-        require([
-          'views/post'
-        ], function(postView) {
-          postView.model.set(model.toJSON());
-          postView.render();
-        });
-      }
-      
-      
+      require([
+        'views/postView'
+      ], function(postView) {
+        postView.model.set('permalink', title);
+      });
     },
 
     defAction: function(permalink) {
-      console.log('[router] 404: ' + permalink);
-    }
-  });
-
-  return new Router();
-
-})
+      consol

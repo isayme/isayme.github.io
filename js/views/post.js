@@ -3,7 +3,8 @@ define([
   'underscore',
   'backbone',
   'models/post',
-  'collections/post'
+  'collections/post',
+  'jquery.loadgist'
 ], function($, _, Backbone, PostModel, postCollection) {
 
   var PostView = Backbone.View.extend({
@@ -11,47 +12,35 @@ define([
     collection: postCollection,
     template: _.template($('#content-template').html()),
 
-    render: function() {
+    render: function(title) {
       if (this.collection.length > 0) {
-        this.$el.html(this.template(this.model.toJSON()));
-      } else {
-        this.$el.html('loading ...');
-      }
-    },
-
-    initialize: function() {
-      this.listenTo(this.model, 'sync', this.render);
-      this.listenTo(this.collection, 'sync', this.syncCollection);
-      this.listenTo(this.model, 'change:permalink', this.reFetch)
-    },
-
-    syncCollection: function() {
-      console.log('syncCollection;' + this.model.get('permalink'));
-
-      var pModel = this.collection.findWhere({permalink: this.model.get('permalink')});
-      if (pModel) {
-        this.model.set(model.toJSON(), {silent: true});
-        this.model.fetch({dataType: 'html'});
-      } else {
-        this.model.clear({silent: true});
-        this.model.trigger('sync');
-      }
-    },
-
-    reFetch: function(model, permalink) {
-      console.log('pst view;' + permalink);
-      if (this.collection.length) {
-        var pModel = this.collection.findWhere({permalink: permalink});
-        if (pModel) {
-          this.model.set(pModel.toJSON(), {silent: true});
-          this.model.fetch({dataType: 'html'});
+        var model = this.collection.findWhere({permalink: title});
+        if (model) {
+          var data = model.toJSON();
+          var self = this;
+          
+          if (model.get('content') === '') {
+            data.content = 'loading...';
+            model.fetch({
+              dataType: 'html',
+              success: function(model) {
+                self.$el.find('.post-content').html(model.get('content')).loadGist();
+              }
+            });
+          }
+          
+          this.$el.html(this.template(data)).loadGist();
+          
         } else {
-          this.model.clear({silent: true});
-          this.model.trigger('sync');
+          this.$el.html('sorry, but the post not exist!');
         }
+      } else { 
+        this.$el.html('config.json not exsit or data format error!');
       }
+      
+      return this;
     }
   });
 
-  return new PostView({model: new PostModel()});
+  return new PostView();
 })

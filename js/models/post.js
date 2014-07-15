@@ -7,18 +7,18 @@ define([
 
   var PostModel = Backbone.Model.extend({
     defaults: {
-      title: '404 => POST NOT FOUND',
-      permalink: '404',
+      title: '',
+      permalink: '',
       content: '',
       date: ''
     },
 
     url: function() {
-      return '/posts/' + this.get('permalink') + '.md';
+      return '/posts/' + this.get('permalink') + '.md' + '?id=' + Math.random();
     },
 
     initialize: function() {
-      //this.on('change:content', this.contentToMarkdown);
+      // this.on('change:content', this.contentToMarkdown);
     },
 
     parse: function(resp) {
@@ -30,5 +30,3 @@ define([
     }
   });
 
-  return PostModel;
-})
