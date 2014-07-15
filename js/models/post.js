@@ -14,7 +14,7 @@ define([
     },
 
     url: function() {
-      return '/posts/' + this.get('permalink') + '.md' + '?id=' + Math.random();
+      return '/posts/' + this.get('permalink') + '.md';
     },
 
     initialize: function() {
@@ -30,3 +30,5 @@ define([
     }
   });
 
+  return PostModel;
+})
