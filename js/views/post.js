@@ -8,11 +8,14 @@ define([
 ], function($, _, Backbone, PostModel, postCollection) {
 
   var PostView = Backbone.View.extend({
-    el: '#content',
+    el: '#post',
     collection: postCollection,
     template: _.template($('#content-template').html()),
 
     render: function(title) {
+      this.$el.siblings().removeClass('active');
+      this.$el.addClass('active');
+      
       if (this.collection.length > 0) {
         var model = this.collection.findWhere({permalink: title});
         if (model) {

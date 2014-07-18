@@ -6,12 +6,16 @@ define([
 ], function($, _, Backbone, postCollection) {
 
   var IndexView = Backbone.View.extend({
-    el: '#content',
+    el: '#home',
     collection: postCollection,
     template: _.template($('#content-template').html()),
 
     render: function() {
       var self = this;
+      
+      this.$el.siblings().removeClass('active');
+      this.$el.addClass('active');
+      
       if (this.collection.length > 0) {
         this.$el.html('');
         this.collection.forEach(function(model) {
