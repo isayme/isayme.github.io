@@ -15,6 +15,12 @@ define([
     initialize: function() {
       this.postCollection = postCollection;
       this.postCollection.fetch({parse: false, async: false});
+      
+      require([
+        'views/nav'
+      ], function(navView) {
+        navView.render();
+      });
     },
 
     index: function() {
