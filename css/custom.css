@@ -38,6 +38,12 @@ body {
   transition: width 0.5s ease-in-out;
 }
 
+.post-content p {
+  margin-top:25px;
+  margin-bottom:25px;
+  text-indent: 2em;
+}
+
 .post-content h2 {
   font-weight: bold;
   margin-top: 30px;
