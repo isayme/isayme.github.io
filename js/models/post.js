@@ -4,7 +4,8 @@ define([
   'backbone',
   'marked'
 ], function($, _, Backbone, marked) {
-
+  marked.setOptions({breaks: true});
+  
   var PostModel = Backbone.Model.extend({
     defaults: {
       title: '',

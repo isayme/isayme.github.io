@@ -1,5 +1,10 @@
 [
   {
+    "title": "为什么程序源码文件末尾要有空行?",
+    "permalink": "why-files-end-with-newline",
+    "date": "2014-7-23"
+  }, 
+  {
     "title": "Backbone源码解析--整体框架",
     "permalink": "backbone-framework",
     "date": "2014-7-3"
