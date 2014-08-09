@@ -1,6 +1,12 @@
 body {
-  font-size: 23px;
+  font-size: 20px;
   font-family: Palatino Linotype, serif;
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
 }
 
 .page-header h1 {
@@ -16,11 +22,14 @@ body {
   color: #333;
 }
 
+.post-title h1 {
+  font-size: 1.6em;
+  margin: 0.3em 0;
+  padding: 0;
+}
 .post-title a {
   color: #666666;
   text-decoration: none;
-  padding: 10px 0;
-  margin: 0;
   transition: color 0.5s ease-in-out;
 }
 .post:hover > .post-title a {
@@ -34,18 +43,18 @@ body {
   background-color: #cccccc;
   height: 1px;
   width: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0.7em;
   transition: width 0.5s ease-in-out;
 }
 
 .post-content p {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .post-content h2 {
   font-weight: bold;
-  margin-top: 30px;
+  margin-top: 1em;
 }
 
 .post-content img {
@@ -53,26 +62,25 @@ body {
 }
 
 .post-content img:hover {
-  -moz-transform: translateX(20px);
-  -webkit-transform: translateX(20px);
-  -o-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  transform: translateX(10px);
+  -moz-transform: translateX(0.5em);
+  -webkit-transform: translateX(0.5em);
+  -o-transform: translateX(0.5em);
+  -ms-transform: translateX(0.5em);
+  transform: translateX(0.5em);
 }
 
 #footer {
   text-align: center;
   border-top: 1px solid #e5e5e5;
   color: #777;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top: 10px;
+  margin-top: 1em;
+  padding: 0.5em;
 }
 
 #menu-show {
   position: fixed;
-  left: 20px;
-  top: 20px;
+  left: 1em;
+  top: 1em;
 }
 #menu-show a:visited, #menu-show a:link {
   color: #555;
@@ -111,6 +119,6 @@ body {
 
 #menu-close {
   position: absolute;
-  right: 20px;
-  top: 20px;
+  right: 1em;
+  top: 1em;
 }
