@@ -1,5 +1,10 @@
 [
   {
+    "title": "Linux bash: login shell VS non-login shell",
+    "permalink": "linux-bash-login-shell-vs-non-login-shell",
+    "date": "2014-08-14"
+  }, 
+  {
     "title": "为什么程序源码文件末尾要有空行?",
     "permalink": "why-files-end-with-newline",
     "date": "2014-7-23"
