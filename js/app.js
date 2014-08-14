@@ -2,8 +2,7 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'router',
-  'bootstrap'
+  'router'
 ], function($, _, Backbone, router) {
 
   var App = {
