@@ -1,5 +1,10 @@
 [
   {
+    "title": "Javascript查看网页自动保存的密码",
+    "permalink": "javascript-show-autosaved-password",
+    "date": "2014-08-14"
+  }, 
+  {
     "title": "Linux bash: login shell VS non-login shell",
     "permalink": "linux-bash-login-shell-vs-non-login-shell",
     "date": "2014-08-14"
