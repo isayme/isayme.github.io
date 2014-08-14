@@ -182,6 +182,14 @@ pre code {
   padding: 0.5em;
 }
 
+#menu a {
+  font-size: 2em;
+  text-decoration: none;
+}
+#menu a:hover {
+  font-weight: bold;
+}
+
 #menu-show {
   position: fixed;
   left: 1em;
