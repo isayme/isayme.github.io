@@ -1,5 +1,10 @@
 [
   {
+    "title": "gcc #include头文件查找规则",
+    "permalink": "gcc-include-header-file-search-rule",
+    "date": "2014-08-18"
+  }, 
+  {
     "title": "Javascript查看网页自动保存的密码",
     "permalink": "javascript-show-autosaved-password",
     "date": "2014-08-14"
