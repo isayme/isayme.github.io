@@ -1,5 +1,10 @@
 [
   {
+    "title": "Javascript function context: bind vs call & apply",
+    "permalink": "javascript-bind-vs-call-and-apply",
+    "date": "2014-10-12"
+  }, {
+  {
     "title": "gcc #include头文件查找规则",
     "permalink": "gcc-include-header-file-search-rule",
     "date": "2014-08-18"
