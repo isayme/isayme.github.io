@@ -29,8 +29,10 @@
 
       $.getJSON(src, function(data) {
         $this.replaceWith(data.div);
-
         loadCSS(data.stylesheet);
+      }).fail(function() {
+        var gist = $this.attr('src').substring(0, $this.attr('src').length - 3);
+        $this.replaceWith('<a href="' + gist + '">' + gist+ '</a>');
       });
     });
   };

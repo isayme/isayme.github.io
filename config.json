@@ -1,5 +1,9 @@
 [
   {
+    "title": "JavaScript匿名函数",
+    "permalink": "javascript-anonymous-functions",
+    "date": "2014-11-21"
+  }, {
     "title": "MinUnit -- 一个极简C单元测试框架",
     "permalink": "minunit",
     "date": "2014-10-22"
