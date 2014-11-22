@@ -31,7 +31,8 @@ define([
               }
             });
           }
-          
+		  
+          document.title = model.get('title');
           this.$el.html(this.template(data)).loadGist();
           
         } else {

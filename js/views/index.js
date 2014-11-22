@@ -26,6 +26,8 @@ define([
       } else {
         this.$el.html('config.json not exsit or data format error!');
       }
+	  
+	  document.title = 'H E A V E N';
       
       return this;
     }
