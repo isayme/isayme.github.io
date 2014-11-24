@@ -1,6 +1,6 @@
 匿名函数是指运行时动态声明的函数. 之所以称为匿名函数是因为他们不像其他函数那样有一个名字.
 
-匿名函数声明时用的[是函数操作符而不是函数声明](http://helephant.com/2012/07/14/javascript-function-declaration-vs-expression/). 你可以在任何需要一个表达式的地方使用函数操作符. 比如你可以为一个函数声明一个新的函数作为其参数或者声明一个新函数并赋值给另一个对象的某个属性.
+匿名函数声明时用的[是函数表达式而不是函数声明](http://helephant.com/2012/07/14/javascript-function-declaration-vs-expression/). 你可以在任何需要一个表达式的地方使用函数表达式. 比如你可以为一个函数声明一个新的函数作为其参数或者声明一个新函数并赋值给另一个对象的某个属性.
 
 这里有一个典型命名函数的例子:
 ```
@@ -18,17 +18,17 @@ var flyToTheMoon = function() {
 flyToTheMoon();
 ```
 
-## 用函数操作符创建匿名函数 ##
-函数声明和函数操作符是JavaScript两个最常见的创建函数方式. 匿名函数用的是函数操作符.
+## 用函数表达式创建匿名函数 ##
+函数声明和函数表达式是JavaScript两个最常见的创建函数方式. 匿名函数用的是函数表达式.
 
 如果关键字`function`在一个声明中最先出现且紧跟一个函数名字, 那么这个函数是通过函数声明创建的:
 ![函数声明](http://isayme.qiniudn.com/function-declaration.png)
 
-如果关键字`function`出现在任何其他地方, 那么这个函数极有可能就是通过函数操作符创建的:
-![函数操作符](http://isayme.qiniudn.com/function-operator.png)
+如果关键字`function`出现在任何其他地方, 那么这个函数极有可能就是通过函数表达式创建的:
+![函数表达式](http://isayme.qiniudn.com/function-operator.png)
 
 When the function operator is called, it creates a new function object and returns it. Here’s an example that creates a function and assigns it to a variable called flyToTheMoon:
-当函数操作符被调用时, 一个新的函数对象将被创建并返回改函数对象. 下面的例子中我们创建一个函数并赋值给变量`flyToTheMoon`:
+当函数表达式被调用时, 一个新的函数对象将被创建并返回改函数对象. 下面的例子中我们创建一个函数并赋值给变量`flyToTheMoon`:
 ```
 var flyToTheMoon = function() {
     alert("Zoom! Zoom! Zoom!");
@@ -45,7 +45,7 @@ flyToTheMoon();
 ```
 
 ## 匿名函数是在运行时创建的 ##
-函数操作符可以在任何可以使用一个表达式的地方使用. 你可以在给变量赋值的时候使用, 在一个参数传递给函数时使用或是在`return`语句时使用. 之所以可以这样就是因为函数操作符总在运行时调用.
+函数表达式可以在任何可以使用一个表达式的地方使用. 你可以在给变量赋值的时候使用, 在一个参数传递给函数时使用或是在`return`语句时使用. 之所以可以这样就是因为函数表达式总在运行时调用.
 
 函数声明不一样, 他们在其他代码执行之前就已经运行了, 所以函数声明不必放在改函数调用语句之前.
 
@@ -62,7 +62,7 @@ function flyToTheMoon() {
 flyToTheMoon();
 ```
 
-对于函数操作符创建的函数, 函数名是可选的. 多数情况下, 函数名对我们来说意义不大, 所以我们像下面这样创建一个匿名函数:
+对于函数表达式创建的函数, 函数名是可选的. 多数情况下, 函数名对我们来说意义不大, 所以我们像下面这样创建一个匿名函数:
 ```
 var flyToTheMoon = function() {
     alert("Zoom! Zoom! Zoom");
@@ -70,7 +70,7 @@ var flyToTheMoon = function() {
 flyToTheMoon();
 ```
 
-然而如果你愿意, 函数操作符同样支持为函数设置一个函数名. 下面就是一个例子:
+然而如果你愿意, 函数表达式同样支持为函数设置一个函数名. 下面就是一个例子:
 ```
 var flyToTheMoon = function flyToTheMoon() {
     alert("Zoom! Zoom! Zoom");
@@ -78,7 +78,7 @@ var flyToTheMoon = function flyToTheMoon() {
 flyToTheMoon();
 ```
 
-匿名函数的函数名不会自动在当前作用域添加一个用于保存该函数的变量. 你仍要将函数操作符的返回值赋给一个变量.
+匿名函数的函数名不会自动在当前作用域添加一个用于保存该函数的变量. 你仍要将函数表达式的返回值赋给一个变量.
 
 上个例子中, 保存函数对象的变量名和函数名是相同的, 但这不是必须的:
 ```
@@ -88,7 +88,7 @@ var thingsToDoToday = function flyToTheMoon() {
 thingsToDoToday();
 ```
 
-## 匿名函数为什么要有个名字? ##
+## 匿名函数为什么也要有个名字? ##
 这样匿名函数就可以在自身内部调用自己. 这对于递归调用非常有用.
 ```
 var thingsToDoToday = function flyToTheMoon() {
@@ -103,7 +103,7 @@ thingsToDoToday();
 
 对于调试也同样有帮助, 因为你可以才调用栈中看到函数名. 匿名函数在调用栈中看起来都一样. 如果你恰好遇到一个极其恶心的调试场景, 给匿名函数一个名字说不定会让你豁然开朗.
 
-## 匿名函数? ##
+## 匿名函数有啥用? ##
 很多情况函数名对我们没啥用, 可以不给匿名函数命名自然会很方便. 多数时候匿名函数和命名函数都可以完美实现功能.
 
 更多关于如何使用匿名函数可以参见[这些例子](http://helephant.com/2012/07/14/javascript-function-declaration-vs-expression/#function-operator-is-an-expression)
