@@ -1,5 +1,9 @@
 [
   {
+    "title": "理解JavaScript弱类型",
+    "permalink": "understanding-loose-typing-in-javascript",
+    "date": "2014-11-27"
+  }, {
     "title": "JavaScript匿名函数",
     "permalink": "javascript-anonymous-functions",
     "date": "2014-11-21"
@@ -8,7 +12,7 @@
     "permalink": "minunit",
     "date": "2014-10-22"
   }, {
-    "title": "Javascript function context: bind vs call & apply",
+    "title": "JavaScript function context: bind vs call & apply",
     "permalink": "javascript-bind-vs-call-and-apply",
     "date": "2014-10-12"
   }, {
@@ -16,7 +20,7 @@
     "permalink": "gcc-include-header-file-search-rule",
     "date": "2014-08-18"
   }, {
-    "title": "Javascript查看网页自动保存的密码",
+    "title": "JavaScript查看网页自动保存的密码",
     "permalink": "javascript-show-autosaved-password",
     "date": "2014-08-14"
   }, {
