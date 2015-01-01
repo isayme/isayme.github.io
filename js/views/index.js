@@ -48,7 +48,9 @@ define([
               model.fetch({
                 dataType: 'html',
                 success: function(model) {
-                  self.$el.find('.post-content').html(model.get('content')).loadGist();
+                  if (self.permalink === permalink) {
+                    self.$el.find('.post-content').html(model.get('content')).loadGist();
+                  }
                 }
               });
             }
