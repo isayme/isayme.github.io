@@ -1,26 +1,14 @@
 define([
   'jquery',
   'underscore',
-  'backbone',
-  'collections/post'
-], function($, _, Backbone, postCollection) {
+  'backbone'
+], function($, _, Backbone) {
 
   var Router = Backbone.Router.extend({
     routes: {
       '': 'index',
       ':title.html': 'post',
       '*defAction': 'defAction'
-    },
-
-    initialize: function() {
-      this.postCollection = postCollection;
-      this.postCollection.fetch({parse: false, async: false});
-      
-      require([
-        'views/nav'
-      ], function(navView) {
-        navView.render();
-      });
     },
 
     index: function() {
@@ -33,11 +21,10 @@ define([
 
     post: function(title) {
       require([
-        'views/post'
-      ], function(postView) {
-        postView.render(title);
+        'views/index'
+      ], function(indexView) {
+        indexView.render(title);
       });
-      
     },
 
     defAction: function(permalink) {

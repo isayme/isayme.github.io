@@ -6,30 +6,70 @@ define([
 ], function($, _, Backbone, postCollection) {
 
   var IndexView = Backbone.View.extend({
-    el: '#home',
+    el: '#content',
     collection: postCollection,
     template: _.template($('#content-template').html()),
-
-    render: function() {
+    permalink: null,
+    
+    initialize: function() {
+      this.collection.fetch({
+        parse: false,
+        success: _.bind(this.update, this),
+        error: _.bind(this.update, this)
+      });
+    },
+    
+    update: function() {
+      if (this.collection.length <= 0) {
+        this.$el.html('config.json not exsit or data format error!');
+      }
+      
+      this.render(this.permalink);
+    },
+    
+    render: function(permalink) {
       var self = this;
+      this.permalink = permalink;
       
-      this.$el.siblings().removeClass('active');
-      this.$el.addClass('active');
+      if (this.collection.length <= 0) {
+        return this;
+      }
       
-      if (this.collection.length > 0) {
+      if (permalink) {  // post detail   
+        var model = this.collection.findWhere({permalink: permalink});
+        if (model) {
+          var data = model.toJSON();
+          
+          require([
+            'jquery.loadgist'
+          ], function() {
+            if (model.get('content') === '') {
+              data.content = '<div style="margin-left: auto; margin-right: auto; width: 64px; height: 64px"><img src="img/loading-spinning-bubbles.svg"/></div>';
+              model.fetch({
+                dataType: 'html',
+                success: function(model) {
+                  self.$el.find('.post-content').html(model.get('content')).loadGist();
+                }
+              });
+            }
+            self.$el.html(self.template(data)).loadGist();
+            self.$el.find('.post-content').show();
+          });
+          
+          document.title = model.get('title');
+        } else {
+          this.$el.html('sorry, but the post not exist!');
+          document.title = '404';
+        }
+      } else {  // post list
         this.$el.html('');
         this.collection.forEach(function(model) {
           var data = model.toJSON();
-          data.content = '';
           self.$el.append(self.template(data));
         });
-      } else {
-        this.$el.html('config.json not exsit or data format error!');
+        
+        document.title = 'H E A V E N';
       }
-	  
-	  document.title = 'H E A V E N';
-      
-      return this;
     }
   });
 
