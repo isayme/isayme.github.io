@@ -27,7 +27,6 @@ flyToTheMoon();
 如果关键字`function`出现在任何其他地方, 那么这个函数极有可能就是通过函数表达式创建的:
 ![函数表达式](http://isayme.qiniudn.com/function-operator.png)
 
-When the function operator is called, it creates a new function object and returns it. Here’s an example that creates a function and assigns it to a variable called flyToTheMoon:
 当函数表达式被调用时, 一个新的函数对象将被创建并返回改函数对象. 下面的例子中我们创建一个函数并赋值给变量`flyToTheMoon`:
 ```
 var flyToTheMoon = function() {
