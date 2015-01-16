@@ -1,5 +1,9 @@
 [
   {
+    "title": "JavaScript中的一等公民: 函数",
+    "permalink": "functions-are-first-class-objects-in-javascript",
+    "date": "2015-01-16"
+  }, {
     "title": "理解JavaScript弱类型",
     "permalink": "understanding-loose-typing-in-javascript",
     "date": "2014-11-27"
