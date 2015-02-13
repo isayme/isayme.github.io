@@ -1,1 +1,1 @@
-<script src="https://gist.github.com/isayme/3f40a273c03a4d939768.js"></script>
+因去除gist自动加载功能, 详细注释请参见[Backbone源码注释](https://gist.github.com/isayme/3f40a273c03a4d939768)

@@ -13,14 +13,9 @@ require.config({
       'http://cdn.staticfile.org/backbone.js/1.1.2/backbone-min',
       'vendor/backbone-1.1.2.min'
     ],
+    'then': 'vendor/then-0.1.0.min',
     'marked': 'vendor/marked-0.3.2.min',
-    'jquery.loadgist': 'vendor/jquery.loadgist',
     'text': 'vendor/text'
-  },
-
-  shim: {
-    'jquery.pjax': ['jquery'],
-    'jquery.loadgist': ['jquery']
   }
 
 });

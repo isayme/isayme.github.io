@@ -20,58 +20,80 @@ define([
     },
     
     update: function() {
+      this.$el.removeClass('loading');
+
       if (this.collection.length <= 0) {
-        this.$el.html('config.json not exsit or data format error!');
+        this.$el.addClass('warning');
+        this.$el.html('NO `config.json` EXSIT OR DATA FORMAT ERROR!');
+      } else {
+        this.render(this.permalink);
       }
-      
-      this.render(this.permalink);
     },
     
     render: function(permalink) {
       var self = this;
       this.permalink = permalink;
+      if (this.collection.length <= 0) return;
       
-      if (this.collection.length <= 0) {
-        return this;
-      }
-      
-      if (permalink) {  // post detail   
-        var model = this.collection.findWhere({permalink: permalink});
-        if (model) {
-          var data = model.toJSON();
-          
-          require([
-            'jquery.loadgist'
-          ], function() {
-            if (model.get('content') === '') {
-              data.content = '<div style="margin-left: auto; margin-right: auto; width: 64px; height: 64px"><img src="img/loading-spinning-bubbles.svg"/></div>';
-              model.fetch({
-                dataType: 'html',
-                success: function(model) {
-                  if (self.permalink === permalink) {
-                    self.$el.find('.post-content').html(model.get('content')).loadGist();
-                  }
-                }
-              });
-            }
-            self.$el.html(self.template(data)).loadGist();
-            self.$el.find('.post-content').show();
-          });
-          
-          document.title = model.get('title');
-        } else {
-          this.$el.html('sorry, but the post not exist!');
-          document.title = '404';
-        }
-      } else {  // post list
+      // post list
+      if (!permalink) {
+        document.title = 'H E A V E N';
+        this.$el.removeClass('warning');
         this.$el.html('');
         this.collection.forEach(function(model) {
           var data = model.toJSON();
           self.$el.append(self.template(data));
         });
-        
-        document.title = 'H E A V E N';
+        return;
       }
+
+      var model = this.collection.findWhere({permalink: permalink});
+      if (!model) {
+        document.title = 'o(╯□╰)o';
+        this.$el.addClass('warning');
+        this.$el.html('SORRY, BUT THE POST NOT EXIST!');
+        return;
+      }
+
+      document.title = model.get('title');
+      var data = model.toJSON();
+      data.content = '';
+      this.$el.html(self.template(data));
+      this.$el.find('.post-content').addClass('loading').show();
+
+      require(['then'], function(Then) {
+        var promise = new Then(function(resolve, reject) {
+          if (model.get('content') === '') {
+            model.fetch({
+              dataType: 'html',
+              success: function(model) {
+                if (self.permalink === permalink) {
+                  resolve(model.get('content'));
+                } else {
+                  // route changed
+                  reject(null);
+                }
+              },
+              error: function() {
+                reject('SORRY, BUT WE FAILED TO FETCH THE POST CONTENT!');
+              }
+            });
+          } else {
+            resolve(model.get('content'));
+          }
+        });
+
+        promise.then(function(value) {
+          self.$el.find('.post-content').removeClass('loading');
+          self.$el.find('.post-content').html(value);
+        }, function(reason) {
+          self.$el.find('.post-content').removeClass('loading');
+          if (reason) {
+            self.$el.find('.post-content').addClass('warning');
+            self.$el.find('.post-content').html(reason);
+          }
+        });
+      });
     }
   });
 

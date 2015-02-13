@@ -51,14 +51,22 @@ strong {
   padding: 0.3em;
 }
 
+.warning {
+  text-align: center;
+  font-size: 1.5em;
+  background-color: #FCF8E3;
+  padding: 1em 0;
+}
+
 .header {
   border-bottom: 1px solid #eee;
-  margin: 40px 0 30px;
-  padding-bottom: 10px;
+  margin: 3em 0 1.5em;
+  padding-bottom: 2em;
   width: 100%;
+  text-align: center;
 }
 .header h1 {
-  font-size: 70px;
+  font-size: 4.5em;
 }
 
 .header h1 a:link, .header h1 a:visited {
@@ -190,6 +198,13 @@ pre code {
   -o-transform: translateX(0.5em);
   -ms-transform: translateX(0.5em);
   transform: translateX(0.5em);
+}
+
+.loading {
+  height: 5em;
+  background-image: url(../img/loading-spinning-bubbles.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #footer {
